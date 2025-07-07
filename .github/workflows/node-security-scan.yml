@@ -27,3 +27,11 @@ jobs:
       run: |
         cd nodejs
         trivy config Dockerfile
+
+    - name: Build Docker image
+      run: |
+        cd nodejs
+        docker build -t node-backend .
+    
+    - name: Scan Docker image
+      run: trivy image node-backend    
