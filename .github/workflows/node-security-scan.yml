@@ -49,7 +49,7 @@ jobs:
       - name: Build Docker image
         run: |
           cd nodejs
-          docker-compose build
+          docker compose build
 
       - name: Show Docker containers
         if: ${{ always() }}
