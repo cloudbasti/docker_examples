@@ -7,7 +7,21 @@ on:
     branches: [ master ]
 
 jobs:
-  security-scan:
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run npm install and audit
+        run: |
+          cd nodejs
+          npm install
+          npm audit --audit-level=high
+
+  trivy-scan:
     runs-on: ubuntu-latest
     steps:
     
@@ -31,7 +45,7 @@ jobs:
     - name: Build Docker image
       run: |
         cd nodejs
-        docker build -t node-backend .
+        docker-compose build
     
     - name: Scan Docker image
-      run: trivy image node-backend    
+      run: trivy image nodejs-app:latest    
