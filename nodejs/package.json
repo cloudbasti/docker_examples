@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-docker-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app running in Docker with hot reloading",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+} 

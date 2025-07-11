@@ -28,6 +28,9 @@ docker build -t flask-backend .
 docker run -d --name flask-backend -p 5000:5000 flask-backend
 ```
 
+
+
+
 ### Test the endpoints:
 ```bash
 # Home endpoint

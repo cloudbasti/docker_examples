@@ -20,11 +20,7 @@ docker build -t mongodb-app .
 
 ### Run the container:
 ```bash
-docker run -d \
-  --name mongodb \
-  -p 27017:27017 \
-  -v mongodb_data:/data/db \
-  mongodb-app
+docker run -d --name mongodb -p 27017:27017 -v mongodb_data:/data/db mongodb-app
 ```
 
 ### Connect to MongoDB:

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  nodejs:
+    build: .
+    image: nodejs-app:latest
+    container_name: nodejs
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/usr/src/app/src
+    restart: unless-stopped 
