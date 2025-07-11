@@ -88,12 +88,13 @@ jobs:
         # Snyk scans for vulnerabilities in dependencies, provides detailed reports and remediation advice
         # For public repos: unlimited tests, detailed vulnerability analysis, and fix suggestions
         env:
-          SNYK_API_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }}
           SNYK_ORGANIZATION: ${{ secrets.SNYK_ORGANIZATION }}
         run: |
           cd nodejs
           npm install -g snyk
-          snyk test --org=${{ secrets.SNYK_ORGANIZATION }} --project-name=docker_examples-nodejs
+          snyk auth --auth-type=SNYK_TOKEN
+          snyk test --org=${{ secrets.SNYK_ORGANIZATION }} --project-name=docker_examples-nodejs --remote-repo-url=https://github.com/cloudbasti/docker_examples
 
   # Step 4: Build and Push - Create and publish Docker image
   push-to-dockerhub:
