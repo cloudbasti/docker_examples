@@ -12,7 +12,7 @@ spec:
     - containerPort: 5432
     env:
     - name: POSTGRES_DB
-      value: "myapp"
+      value: "myapp"n
     - name: POSTGRES_USER
       value: "admin"
     - name: POSTGRES_PASSWORD
@@ -23,3 +23,18 @@ spec:
   volumes:
   - name: postgresql-storage
     emptyDir: {} 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-service
+  labels:
+    app: postgresql
+spec:
+  selector:
+    app: postgresql
+  ports:
+  - port: 5432
+    targetPort: 5432
+    protocol: TCP
+  type: ClusterIP 
