@@ -1,0 +1,28 @@
+BACKEND: 
+
+node.js
+
+CI/CD
+1. add Sonarcube Scans
+2. add npm test for a jest test suite
+3. potentially run automated postman api tests in pipeline
+4.  Snyk, Postman and SonarCube
+
+
+
+FRONTEND: 
+1. Docker Compose for Vue.Js
+2. CI/CD pipeline for Vue.JS until Docker Push
+3. Connect Vue 3 to backend (maybe can reuse the old code)
+
+
+terraform IaC repository
+CI/CD 
+1. add CI/CD Pipeline basic security scans 
+
+
+
+Testing services: 
+
+1. Add Tests for Kubernetes like Unit Tests and End2End-Tests
+
